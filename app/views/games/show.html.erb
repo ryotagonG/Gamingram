@@ -33,9 +33,31 @@
                   <td><%= simple_format @game.body %></td>
                 </tr>
               </table>
+              <% if @game.user.id == current_user.id %>
+                <%= link_to "編集", edit_game_path(@game), class: "button is-success" %>
+              <% end %>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="column is-4">
+        <article class="panel is-link">
+          <p class="panel-heading">
+            <%= @game.user.username %>
+          </p>
+          <div class="panel-block">
+            <p class="control">
+              <%= @game.user.profile %>
+            </p>
+          </div>
+          <%= link_to user_path(@game.user), class: "panel-block" do %>
+            <span class="panel-icon">
+              <i class="fas fa-user" aria-hidden="true"></i>
+            </span>
+            <%= @game.user.username %> さんのページへ
+          <% end %>
+        </article>
       </div>
     </div>
   </div>
