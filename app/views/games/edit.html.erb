@@ -1,2 +1,12 @@
-<h1>Games#edit</h1>
-<p>Find me in app/views/games/edit.html.erb</p>
+<%= form_with model: @game do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  
+  <%= f.label :image %>
+  <%= f.attachment_field :image %>
+  
+  <%= f.submit %>
+<% end %>
