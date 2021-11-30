@@ -13,9 +13,16 @@
  *= require_tree .
  *= require_self
  */
- 
+
  @import "bulma";
- 
+
  .notification:not(:last-child){
 	margin-bottom: 0;
+}
+
+.main-image {
+  height: 940px;
+  background-image: url(game.png);
+  background-repeat: none;
+  background-size: contain;
 }
