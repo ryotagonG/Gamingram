@@ -15,19 +15,27 @@ class GamesController < ApplicationController
   def create
     @game =Game.new(game_params)
     @game.user_id = current_user.id
-    @game.save
-    redirect_to game_path(@game)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :new
+    end
   end
 
   def edit
     @game = Game.find(params[:id])
+    if @game.user != current_user
+      redirect_to games_path, alert: "不正なアクセスです。"
+    end
   end
 
   def update
     @game = Game.find(params[:id])
-    @game.update(game_params)
-    redirect_to game_path(@game)
-
+    if @game.update(game_params)
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
   end
 
   def destroy
