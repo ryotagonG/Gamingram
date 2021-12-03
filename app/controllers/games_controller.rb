@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     @game =Game.new(game_params)
     @game.user_id = current_user.id
     if @game.save
-      redirect_to game_path(@game)
+      redirect_to game_path(@game), notice: "投稿に成功しました。"
     else
       render :new
     end
@@ -32,7 +32,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(game_params)
-      redirect_to game_path(@game)
+      redirect_to game_path(@game), notice: "更新に成功しました。"
     else
       render :edit
     end
