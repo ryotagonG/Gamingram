@@ -13,7 +13,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game =Game.new(game_params)
+    @game = Game.new(game_params)
     @game.user_id = current_user.id
     if @game.save
       redirect_to game_path(@game), notice: "投稿に成功しました。"
