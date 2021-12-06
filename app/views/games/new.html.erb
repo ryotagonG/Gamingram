@@ -8,6 +8,7 @@
   </div>
 </section>
 
+<!--#バリデーションのエラーメッセージが表示されない-->
 <% if @game.errors.any? %>
   <div class="notification is-danger">
     <h2><%= pluralize(@game.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
