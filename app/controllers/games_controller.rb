@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.user_id = current_user.id
-    if @game.save
+    if @game.save!
       redirect_to game_path(@game), notice: "投稿に成功しました。"
     else
       render :new
